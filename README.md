@@ -73,16 +73,47 @@ By Default all ingress & egress traffic to newly created NACLs are denied, we ha
 Allow IPv4/6 ingress traffic on Port 80 & 443 from the internet (0.0.0.0/0 & ::/0)
 Allow ephemeral Ports 1024-65535 in, so that NAT instance in the Public Subnet can receive IPv4 response to request it sent out
 
-### Inbound Pulic NACL rules
+### Inbound Public NACL rules
 
 ![Create Inbound Public Subnet NACL Rules](./assets/PublicSubnetNACL.png)
 
-### Outbound Pulic NACL rules
+### Outbound Public NACL rules
 Ephemeral Ports 1024-65535 (egress) have to be opened for IPV4/6 - 0.0.0.0/0 & ::/0
+Open Port 80/443 so the NAT can send outbound IPv4 traffic - 0.0.0.0/0
 
 ![Create Outbound Public Subnet NACL Rules](./assets/PublicSubnetNACLOutBound.png)
 
 ![Associate Public Subnet NACL to Public Subnets](./assets/PublicSubnetNACLAssoc.png)
+
+### Create Private Subnet NACL rules:
+
+
+### Inbound Private NACL rules
+
+In order for EC2 instances to receive traffic from the Database Subnet you need to open ingress ephemeral Ports 1024-65535 for local VPC traffic
+In order for the Database Subnet to send responses, you still need to open ephemeral ports 1024-65535 for local traffic
+
+
+### Outbound Private NACL rules
+
+### Create Database NACL rules 
+
+### Inbound Database NACL rules
+Allow Ingress 3306 for local VPC traffic, so EC2 instances can communicate to the database
+
+### Outbound Database NACL rules
+
+
+### Security Groups - are applied directly to the instances, security groups are stateful, they do recognize sessions
+We can specify just ingress rules, you can only specify allow rules, no deny rules, all inbound traffic is denied by default and all outbound is allowed. Specify Protocol and source IP/Port range
+
+### Create Three Security Groups - DatabaseSG, WebServerSG, AlbSG
+
+### AlbSG
+
+### WebServerSG
+
+### DatabaseSG
 
 
 
