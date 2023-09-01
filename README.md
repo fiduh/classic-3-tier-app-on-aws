@@ -13,3 +13,14 @@ Create a VPC with a 10.0.0.0/21 IPV4 Cidr Range (2046 IP Addresses) and enable A
 Create Subnets Per Tier Per AZ to achieve HA, Fault-Tolerance & Isolation
 
 ![Create Subnet Per Tier Per AZ](./assets/SubnetPerTierPerAZ.png)
+
+### Internet Access
+By Default, VPCs are private & don't communicate with the outside world. An Internet Gateway(IGW) is required for a VPC to access the Internet & The public subnets that require access to the Internet are explicitly associated with Route Tables which have routes to the IGW
+
+### Create an IGW - Attach to the VPC - then use the IGW as Target for Routes
+
+
+### Configure Routing
+Routing is only concerned with whether traffic can flow from one place to another. Routing is not concerned with protocols e.g. TCP/UDP/ICMP, nor concerned with ports e.g. 80/443
+
+***All VPCs have a default route table, with default routes & this is referred to as the "Main Route Table" If a Subnet is not explicitly associated with a route table, it is implicitly associated with the main route table***
