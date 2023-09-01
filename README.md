@@ -40,3 +40,6 @@ Routing is only concerned with whether traffic can flow from one place to anothe
 
 ### Create Route Tables
 
+### Public Route Table & associate it with the Public Subnets
+![Create Public Route Table](./assets/PublicRouteTable.png)
+![Associate Public Route Table to Public Subnets](./assets/PublicRouteTable.png)
