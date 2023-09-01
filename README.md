@@ -21,9 +21,17 @@ By Default, VPCs are private & don't communicate with the outside world. An Inte
 
 ![Create IGW](./assets/3-Tier-App-IGW.png)
 
+### Private Subnets Sometimes need One-way communication to the internet, NAT enables this for IPv4 traffic & Egress-Only Internet Gateway enables this for IPv6 traffic.
+
+### Create NAT in a Public Subnet with an Elastic Public IP Attached
+
+![Create NAT](./assets/CreateNAT.png)
+
 ### Egress-Only Internet Gateway - For egress-only traffic for IPv6
 
 ![Create EIGW](./assets/3-tier-app-eigw.png)
+
+
 
 ### Configure Routing
 Routing is only concerned with whether traffic can flow from one place to another. Routing is not concerned with protocols e.g. TCP/UDP/ICMP, nor concerned with ports e.g. 80/443
