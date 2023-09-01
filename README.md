@@ -56,3 +56,7 @@ Create a Route Table that Routes IPV4 traffic to NAT and IPv6 Traffic to Egress-
 
 ### Create a Database Route Table & associate it with the Database Subnets
 All Traffic remains local in the VPC
+
+![Create Database Route Table](./assets/CreateDatabaseRouteTable.png)
+![Associate Database Route Table to Database Subnets](./assets/ExplicitDatabaseSubnetAssoc.png)
+
