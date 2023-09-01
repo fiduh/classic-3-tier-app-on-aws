@@ -19,6 +19,6 @@ Create a VPC with a 10.0.0.0/21 IPV4 Cidr Range (2046 IP Addresses) and enable A
 
 <img src="./assets/Create3tierVPC.png">
 
-![Create VPC](./assets/Create3tierVPC.png)
+
 
 Create Subnets Per Tier Per AZ to achieve HA, Fault-Tolerance & Isolation
