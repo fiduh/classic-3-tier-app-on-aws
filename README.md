@@ -17,8 +17,13 @@ Create Subnets Per Tier Per AZ to achieve HA, Fault-Tolerance & Isolation
 ### Internet Access
 By Default, VPCs are private & don't communicate with the outside world. An Internet Gateway(IGW) is required for a VPC to access the Internet & The public subnets that require access to the Internet are explicitly associated with Route Tables which have routes to the IGW
 
-### Create an IGW - Attach to the VPC - then use the IGW as Target for Routes
+### Create an IGW - Attach to the VPC - then use the IGW as a Target for Routes
 
+![Create IGW](./assets/3-Tier-App-IGW.png)
+
+### Egress-Only Internet Gateway - For egress-only traffic for IPv6
+
+![Create EIGW](./assets/3-tier-app-eigw.png)
 
 ### Configure Routing
 Routing is only concerned with whether traffic can flow from one place to another. Routing is not concerned with protocols e.g. TCP/UDP/ICMP, nor concerned with ports e.g. 80/443
