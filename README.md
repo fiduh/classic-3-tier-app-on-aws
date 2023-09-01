@@ -29,3 +29,6 @@ By Default, VPCs are private & don't communicate with the outside world. An Inte
 Routing is only concerned with whether traffic can flow from one place to another. Routing is not concerned with protocols e.g. TCP/UDP/ICMP, nor concerned with ports e.g. 80/443
 
 ***All VPCs have a default route table, with default routes & this is referred to as the "Main Route Table" If a Subnet is not explicitly associated with a route table, it is implicitly associated with the main route table***
+
+### Create Route Tables
+
