@@ -78,7 +78,7 @@ Allow ephemeral Ports 1024-65535 in, so that NAT instance in the Public Subnet c
 ![Create Inbound Public Subnet NACL Rules](./assets/PublicSubnetNACL.png)
 
 ### Outbound Public NACL rules
-Ephemeral Ports 1024-65535 (egress) have to be opened for IPV4/6 - 0.0.0.0/0 & ::/0
+Ephemeral Ports 1024-65535 (egress) have to be opened for IPV4/6 - 0.0.0.0/0 & ::/0, so the response can be sent to the end-users
 Open Port 80/443 so the NAT can send outbound IPv4 traffic - 0.0.0.0/0
 
 ![Create Outbound Public Subnet NACL Rules](./assets/PublicSubnetNACLOutBound.png)
@@ -95,13 +95,15 @@ In order for the Database Subnet to send responses, you still need to open ephem
 
 
 ### Outbound Private NACL rules
+In order to send traffic to the Database Subnet Allow egress on Port 5432 for the local VPC traffic
 
 ### Create Database NACL rules 
 
 ### Inbound Database NACL rules
-Allow Ingress 3306 for local VPC traffic, so EC2 instances can communicate to the database
+Allow Ingress 5432 for local VPC traffic, so EC2 instances in the Private Subnet can communicate to the database
 
 ### Outbound Database NACL rules
+In order for the database to send responses ephemeral Ports 1024-65535 need to be opened outbound for local VPC traffic
 
 
 ### Security Groups - are applied directly to the instances, security groups are stateful, they do recognize sessions
@@ -110,10 +112,28 @@ We can specify just ingress rules, you can only specify allow rules, no deny rul
 ### Create Three Security Groups - DatabaseSG, WebServerSG, AlbSG
 
 ### AlbSG
+Allow inbound TCP on Port 80/443 from the Internet - 0.0.0.0/0 & ::/0
+Allow outbound ephemeral Ports 1024-65535 to the WebServer Security Group
+Hardwire this load balancer to only communicate with the WebServers Security Group
 
 ### WebServerSG
+Only allowed to receive ephemeral Ports 1024 - 65535 from the ALB SG
 
 ### DatabaseSG
+Allow inbound 5432 from only the WebserverSG (Using security group references)
+
+
+## Create RDS (Postgres)
+
+### Create EC2 instances with User Data configured to install & run Httpd server at boot time 
+Connect to the RDS & also show information about the Instance on the webpage and attach an EC2 instance role, allowing readOnly permission to RDS
+
+### Create an ALB to route external traffic to the EC2 instance instance 
+
+### Route53
+Create an Alias record to resolve traffic to the ALB
+
+### Create a Certificate manager to encrypt traffic from the internet to the Route 53 record
 
 
 
