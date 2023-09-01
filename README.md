@@ -60,3 +60,13 @@ All Traffic remains local in the VPC
 ![Create Database Route Table](./assets/CreateDatabaseRouteTable.png)
 ![Associate Database Route Table to Database Subnets](./assets/ExplicitDatabaseSubnetAssoc.png)
 
+
+### Subnet & Instance Level Security - NACLs & Security Groups
+***NACLs (Firewalls for the entire subnet) - Applied to the entire subnet, for packets to reach our EC2 instances they have to be explicitly allowed by the NACL, then further filtered by the Security Groups at the instance level.***
+
+NACLs are Stateless - they don’t remember TCP sessions, they don’t recognize a response as being a response to a request that came in earlier, so ingress & egress rules must be specified. Default NACLS allows all * traffic. You can also create Allow or Deny rules, Specify the Protocol, Source/destination IP range, and the Source/destination Port range
+
+### Create three different NACLs, one for the private subnet & the other for the Public Subnet & Database Subnet
+By Default all ingress & egress traffic to newly created NACLs are denied, we have to explicitly create allow rules
+
+### Create Public Subnet NACL rules:
