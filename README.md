@@ -38,8 +38,12 @@ Routing is only concerned with whether traffic can flow from one place to anothe
 
 ***All VPCs have a default route table, with default routes & this is referred to as the "Main Route Table" If a Subnet is not explicitly associated with a route table, it is implicitly associated with the main route table***
 
-### Create Route Tables
 
-### Public Route Table & associate it with the Public Subnets
+### Create Route Tables & associate it with the Public Subnets
 ![Create Public Route Table](./assets/PublicRouteTable.png)
 ![Associate Public Route Table to Public Subnets](./assets/ExplicitSubnetAssociations.png)
+
+### Enable Auto-assign IPv4/6 addresses on all Public Subnets
+Any Machine launched into the Public subnets will automatically receive a public IPv4/6 addresses
+
+![Associate Public Route Table to Public Subnets](./assets/Auto-assignIP-Settings.png)
