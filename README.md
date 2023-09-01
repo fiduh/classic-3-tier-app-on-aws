@@ -39,11 +39,20 @@ Routing is only concerned with whether traffic can flow from one place to anothe
 ***All VPCs have a default route table, with default routes & this is referred to as the "Main Route Table" If a Subnet is not explicitly associated with a route table, it is implicitly associated with the main route table***
 
 
-### Create Route Tables & associate it with the Public Subnets
+### Create a Public Route Table & associate it with the Public Subnets
 ![Create Public Route Table](./assets/PublicRouteTable.png)
 ![Associate Public Route Table to Public Subnets](./assets/ExplicitSubnetAssociations.png)
 
 ### Enable Auto-assign IPv4/6 addresses on all Public Subnets
 Any Machine launched into the Public subnets will automatically receive a public IPv4/6 addresses
 
-![Associate Public Route Table to Public Subnets](./assets/Auto-assignIP-Settings.png)
+![Auto-assign Public IPs to Public Subnets](./assets/Auto-assignIP-Settings.png)
+
+### Create a Private Route Table & associate it with the Private Subnets
+Create a Route Table that Routes IPV4 traffic to NAT and IPv6 Traffic to Egress-Only Internet Gateway, Explicitly associate the Route Table to the Private Subnets, Machines in these Subnets can reach the internet & receive responses but can't be reached from the Internet.
+
+![Create Private Route Table](./assets/CreatePrivateRouteTable.png)
+![Associate Private Route Table to Private Subnets](./assets/ExplicitPrivateSubnetAssoc.png)
+
+### Create a Database Route Table & associate it with the Database Subnets
+All Traffic remains local in the VPC
