@@ -3,4 +3,6 @@ Classic Three Tier Application running on AWS: Public Tier (Load-Balancer/Proxy)
 
 ### AWS Featured Resources - VPC, Rout 53, RDS, Application LoadBalancer, EC2
 
-Setting up a VPC with a 10.0.0.0/21 Cidr Range (2046 IP Addresses)
+Create a VPC with a 10.0.0.0/21 Cidr Range (2046 IP Addresses)
+
+![Create VPC]()
