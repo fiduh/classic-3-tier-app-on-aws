@@ -73,11 +73,11 @@ By Default all ingress & egress traffic to newly created NACLs are denied, we ha
 Allow IPv4/6 ingress traffic on Port 80 & 443 from the internet (0.0.0.0/0 & ::/0)
 Allow ephemeral Ports 1024-65535 in, so that NAT instance in the Public Subnet can receive IPv4 response to request it sent out
 
-##Inbound Pulic NACL rules
+### Inbound Pulic NACL rules
 
 ![Create Inbound Public Subnet NACL Rules](./assets/PublicSubnetNACL.png)
 
-##Outbound Pulic NACL rules
+### Outbound Pulic NACL rules
 Ephemeral Ports 1024-65535 (egress) have to be opened for IPV4/6 - 0.0.0.0/0 & ::/0
 
 ![Create Outbound Public Subnet NACL Rules](./assets/PublicSubnetNACLOutBound.png)
