@@ -5,4 +5,4 @@ Classic Three Tier Application running on AWS: Public Tier (Load-Balancer/Proxy)
 
 Create a VPC with a 10.0.0.0/21 Cidr Range (2046 IP Addresses)
 
-![Create VPC]()
+![Create VPC](./assets/Create3tierVPC.png)
