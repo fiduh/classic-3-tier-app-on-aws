@@ -157,11 +157,11 @@ sudo systemctl reload httpd.service
 
 ### Create an ALB to route external traffic to the EC2 instance
 The Webserver Should serve as a target group for the ALB
-Link the the live sample project:
+Link the live sample project:
 
-```
-3-Tier-ALB-439741781.us-east-1.elb.amazonaws.com
-```
+
+[Live Project URL](3-Tier-ALB-439741781.us-east-1.elb.amazonaws.com)
+
 
 ### Route53
 Create an Alias record to resolve traffic to the ALB
