@@ -160,7 +160,7 @@ The Webserver Should serve as a target group for the ALB
 Link the live sample project:
 
 
-[Live Project URL](http://3-tier-alb-439741781.us-east-1.elb.amazonaws.com/)
+[Live Project URL](http://test.greylivy.com/)
 
 
 ### Route53
