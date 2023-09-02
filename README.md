@@ -91,7 +91,6 @@ Open Port 80/443 so the NAT can send outbound IPv4 traffic - 0.0.0.0/0
 ### Inbound Private NACL rules
 
 In order for EC2 instances to receive traffic from the Database Subnet you need to open ingress ephemeral Ports 1024-65535 for local VPC traffic
-In order for the Database Subnet to send responses, you still need to open ephemeral ports 1024-65535 for local traffic
 
 
 ### Outbound Private NACL rules
@@ -125,12 +124,12 @@ Allow inbound 5432 from only the WebserverSG (Using security group references)
 
 ## Create RDS (Postgres)
 Create an RDS Postgres Database in the Database Subnet, running in a private subnet, only accessible by the WebServer.
-RDSDatabase
+
 ![RDS Database](./assets/RDSDatabase.png)
 
 ### Create EC2 instances with User Data configured to install & run Httpd server at boot time 
 Connect to the RDS & also show information about the Instance on the webpage and attach an EC2 instance role, allowing readOnly permission to RDS
-The UserData Script to perform this task is shown below
+The UserData Script to perform this task is shown below:
 
 ```bash
 #!/bin/bash
