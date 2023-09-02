@@ -146,11 +146,11 @@ nc -zv database-1.cdsskywd9sbc.us-east-1.rds.amazonaws.com 5432 > file.txt 2>&1
 RDS_CONNECTION=$(cat file.txt)
 
 sudo cat > ~/index.html << EOF
-echo "<h1>We are Live from $(hostname -f)  Testing EC2_ROLE:  $RDS_EC2_ROLE  Testing RDS_CONNECTION: $RDS_CONNECTION</h1>" 
+<h1>We are Live from $(hostname -f)  Testing EC2_ROLE:  $RDS_EC2_ROLE  Testing RDS_CONNECTION: $RDS_CONNECTION</h1> 
 EOF
 
 sudo mv ~/index.html /var/www/html
-sudo systemctl reload httpd.service 
+sudo systemctl reload httpd.service  
 
 ```
 
