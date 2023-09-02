@@ -125,7 +125,8 @@ Allow inbound 5432 from only the WebserverSG (Using security group references)
 
 ## Create RDS (Postgres)
 Create an RDS Postgres Database in the Database Subnet, running in a private subnet, only accessible by the WebServer.
-![RDS Database](./assets/RDS_Database.png)
+RDSDatabase
+![RDS Database](./assets/RDSDatabase.png)
 
 ### Create EC2 instances with User Data configured to install & run Httpd server at boot time 
 Connect to the RDS & also show information about the Instance on the webpage and attach an EC2 instance role, allowing readOnly permission to RDS
