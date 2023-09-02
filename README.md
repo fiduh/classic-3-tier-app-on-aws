@@ -130,8 +130,38 @@ RDSDatabase
 
 ### Create EC2 instances with User Data configured to install & run Httpd server at boot time 
 Connect to the RDS & also show information about the Instance on the webpage and attach an EC2 instance role, allowing readOnly permission to RDS
+The UserData Script to perform this task is shown below
 
-### Create an ALB to route external traffic to the EC2 instance instance 
+```bash
+#!/bin/bash
+sudo yum update
+sudo yum install nc -y
+sudo yum install -y httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+RDS_EC2_ROLE=$(aws rds describe-db-instances --output text)
+
+nc -zv database-1.cdsskywd9sbc.us-east-1.rds.amazonaws.com 5432 > file.txt 2>&1
+RDS_CONNECTION=$(cat file.txt)
+
+sudo cat > ~/index.html << EOF
+echo "<h1>We are Live from $(hostname -f)  Testing EC2_ROLE:  $RDS_EC2_ROLE  Testing RDS_CONNECTION: $RDS_CONNECTION</h1>" 
+EOF
+
+sudo mv ~/index.html /var/www/html
+sudo systemctl reload httpd.service 
+
+```
+
+
+### Create an ALB to route external traffic to the EC2 instance
+The Webserver Should serve as a target group for the ALB
+Link the the live sample project:
+
+```
+3-Tier-ALB-439741781.us-east-1.elb.amazonaws.com
+```
 
 ### Route53
 Create an Alias record to resolve traffic to the ALB
