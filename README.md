@@ -157,8 +157,7 @@ sudo systemctl reload httpd.service
 
 ### Create an ALB to route external traffic to the EC2 instance
 The Webserver Should serve as a target group for the ALB
-Link the live sample project:
-
+Link to the live sample project:
 
 [Live Project URL](https://test.greylivy.com/)
 
